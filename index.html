@@ -9,7 +9,67 @@
     <title>Quiz</title>
 </head>
 <body>
-    <div class="container" id="header">
+    <div class="container-fluid">
+        <nav>
+            <div>Show highscore</div>
+            <div>Timer: <span id="remaining-seconds"></span></div>
+        </nav>
+
+        <div id="start-page">
+            <h1>Welcome</h1>
+            <p>
+                You will have 75 seconds to answer 5 multipe choice question. A correct answer will give you 15 points
+                ,each incorrect answer will subtract 15 points from your total points. Click Start quiz and enjoy it.
+            </p>
+            <button  type="button" class="btn btn-primary btn-rounded">Start Quiz</button>
+
+
+        </div>
+
+        <div id="quiz-page">
+            <div id="question">
+
+            </div>
+            <div id="choices-container">
+
+
+            </div>
+            <button  type="button" class="btn btn-primary btn-rounded">Next question</button>
+
+        </div>
+        <div id="result-page">
+            
+
+        </div>
+    </div>
+
+    
+
+
+    <script src="question.js"></script>
+    <script src="javascript.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div class="container" id="header">
         <div class="row">
         <div class="col">
             <span>View Highscore</span>
@@ -23,9 +83,9 @@
             <div class="col-2"></div>
             <div class="col-8">
 
-                <!-- Landing page with Start game button -->
+                <!-- Landing page with Start quiz button -->
 
-                <div id="landingPage">
+                <!-- <div id="landingPage">
 
                 <h3>Coding quiz challenge</h3>
                 <p>You will have 75 seconds to answer 5 multipe choice question. A correct answer will give you 15 points
@@ -36,22 +96,23 @@
                 </div>
 
                 <!-- Question page with question content and options -->
-                
-                <div id="questionPage" style="display: none">
-                <div class="question" id="question" style="display: none">Question</div>
+
+                <!-- <div id="questionPage" style="display: none">
+
+                <div class="question" id="question"></div>
                 
                 <div class="questionBtn">
                 <button type="button" class="btn btn-primary"> <span id="opt1">Option1</span> </button>
                 <button type="button" class="btn btn-primary"> <span id="opt1">Option2</span> </button>
                 <button type="button" class="btn btn-primary"> <span id="opt1">Option3</span> </button>
-                <button type="button" class="btn btn-primary"> <span id="opt1">Option4</span> </button>
+                <button type="button" class="btn btn-primary"> <span id="opt1">Option4</span> </button> -->
 
   
                 <!-- <label class="option"> <input type="raido" name="option" value="" ><span id ="opt1"></span></label>
                 <label class="option"> <input type="raido" name="option" value="" ><span id ="opt1"></span></label>
                 <label class="option"> <input type="raido" name="option" value="" ><span id ="opt1"></span></label>
                 <label class="option"> <input type="raido" name="option" value="" ><span id ="opt1"></span></label> -->
-                </div>
+                <!-- </div>
 
                 </div>
 
@@ -62,17 +123,34 @@
 
 
     </div>
+    <script src="question.js"></script>
     <script>
+
         function startGame () {           
         document.getElementById("startQuiz").addEventListener("click", function() {
             document.getElementById("landingPage").style.display = "none";
             document.getElementById("questionPage").style.display = "initial";
-        })
+        } -->
+
+
+        <!-- function loadGame() {
+
+            // Load question from question js file
+
+            var questionLoaded = document.getElementById("question");
+            questionLoaded.textContent = questions[2].title ;
+
+            // Load options from question js file
+
         }
-        startGame();
 
 
-    
-    </script>
+            
+
+             
+            
+
+
+   
 </body>
 </html>

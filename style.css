@@ -5,3 +5,15 @@ body {
 #time {
     float: right;
 }
+
+.col-8 {
+    display: flex;
+    align-content: center;
+    height: 50%vh;
+    width: 100%vw;
+}
+
+.btn {
+    display: block;
+    margin: 10px auto;
+}
