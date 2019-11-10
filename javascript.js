@@ -1,6 +1,9 @@
-let seconds = 60;
-let currentQuestionIndex = 0;
+let seconds;
+let currentQuestionIndex;
 const remainingSecondSpan = document.querySelector("#remaining-seconds");
+const totalQuestionNumber = questions.length;
+let correct;
+let incorrect;
 
 setInterval(function() {
     remainingSecondSpan.textContent = seconds;
@@ -8,14 +11,22 @@ setInterval(function() {
 }, 1000 );
 
 
-function getChoiceElement(choice) {
-    const element = document.createElement("div");
+// function getChoiceElement(choice) {
+//     const element = document.createElement("div");
 
-}
+// }
 
 // function to load questions and choices from question object 
 
+function resetQuiz () {
+    seconds = 60;
+    currentQuestionIndex = 0;
+}
+
 function renderQuestion(question) {
+
+    const question = questions[currentQuestionIndex];
+
     document.querySelector("#question").textContent = question.title;
 
     const choiceContainer = document.querySelector("#choices-container");
@@ -36,8 +47,14 @@ function renderQuestion(question) {
     }
 }
 
-const myQuestion = questions[0];
-renderQuestion(myQuestion);
+// const myQuestion = questions[0];
+renderQuestion();
+
+document.querySelector("#start-quiz-button").addEventListener("click", function(event) {
+    resetQuiz();
+    renderQuestion();
+
+});
 
 document.querySelector("#choices-container").addEventListener("click" , function(event) {
 
@@ -45,7 +62,7 @@ document.querySelector("#choices-container").addEventListener("click" , function
 
     if (target.classList.contains("choice")) {
         const answer = target.textContent;
-        const correctAnswer = myQuestion.answer;
+        const correctAnswer = questions[currentQuestionIndex].answer;
 
         if (answer.localeCompare(correctAnswer) === 0 ){
             console.log('you are correct');
