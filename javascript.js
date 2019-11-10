@@ -1,4 +1,4 @@
-const seconds = 60;
+let seconds = 60;
 let currentQuestionIndex = 0;
 const remainingSecondSpan = document.querySelector("#remaining-seconds");
 
@@ -8,31 +8,35 @@ setInterval(function() {
 }, 1000 );
 
 
-const myQuestion = questions[0];
-
 function getChoiceElement(choice) {
     const element = document.createElement("div");
 
 }
 
-// const myQuestion = questions[0];
+// function to load questions and choices from question object 
 
-function renderQuestion(questions) {
-    document.querySelector("#question").textContent = questions.title;
+function renderQuestion(question) {
+    document.querySelector("#question").textContent = question.title;
 
     const choiceContainer = document.querySelector("#choices-container");
 
+    //clear choice container after loading new ones
+
     choiceContainer.innerHTML = '' ;
 
-    for (let index = 0; index < questions.choices.length; index++) {
-        const choice = questions.choices[index];
+    //append new choices
+
+    for (let index = 0; index < question.choices.length; index++) {
+        const choice = question.choices[index];
         const element = document.createElement("div");
+        element.classList.add("choice");
         element.textContent = choice;
         choiceContainer.appendChild(element);
 
     }
 }
 
+const myQuestion = questions[0];
 renderQuestion(myQuestion);
 
 document.querySelector("#choices-container").addEventListener("click" , function(event) {
