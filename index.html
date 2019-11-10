@@ -11,11 +11,11 @@
 <body>
     <div class="container-fluid">
         <nav>
-            <div>Show highscore</div>
+            <div id="show-leaderboards-button">Show Leaderboard</div>
             <div>Timer: <span id="remaining-seconds"></span></div>
         </nav>
 
-        <div id="start-page">
+        <div id="start-page" class="hidden">
             <h1>Welcome</h1>
             <p>
                 You will have 75 seconds to answer 5 multipe choice question. A correct answer will give you 15 points
@@ -26,7 +26,7 @@
 
         </div>
 
-        <div id="quiz-page">
+        <div id="quiz-page" class="hidden">
             <div id="question">
 
             </div>
@@ -37,121 +37,32 @@
             <button  type="button" class="btn btn-primary btn-rounded">Next question</button>
 
         </div>
-        <div id="result-page">
+
+        <div id="result-page" class="hidden">
             <h1>All done</h1>
             <p>Your score is: <span class="score"></span></p>
+            <div>
+                Input your name:
+                <input type="text" id="name">
+                <button type="button" class="btn btn-primary btn-rounded" id="submit-button">Submit</button>
+            </div>
+        </div>
+
+        <div id="leaderboards-page" class="hidden">
+            <ul class="list-group" id="leaderboards-items-container">
+                <li>1</li>
+                <li>2</li>
+
+
+            </ul>
 
         </div>
+
     </div>
 
     
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="question.js"></script>
     <script src="javascript.js"></script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- <div class="container" id="header">
-        <div class="row">
-        <div class="col">
-            <span>View Highscore</span>
-            <span id="time">Time</span>
-        </div>
-        </div>
-
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8">
-
-                <!-- Landing page with Start quiz button -->
-
-                <!-- <div id="landingPage">
-
-                <h3>Coding quiz challenge</h3>
-                <p>You will have 75 seconds to answer 5 multipe choice question. A correct answer will give you 15 points
-                    ,each incorrect answer will subtract 15 points from your total points. Click Start quiz and enjoy it.
-                </p>
-                <button  type="button" class="btn btn-primary btn-rounded" id="startQuiz">Start Quiz</button>
-
-                </div>
-
-                <!-- Question page with question content and options -->
-
-                <!-- <div id="questionPage" style="display: none">
-
-                <div class="question" id="question"></div>
-                
-                <div class="questionBtn">
-                <button type="button" class="btn btn-primary"> <span id="opt1">Option1</span> </button>
-                <button type="button" class="btn btn-primary"> <span id="opt1">Option2</span> </button>
-                <button type="button" class="btn btn-primary"> <span id="opt1">Option3</span> </button>
-                <button type="button" class="btn btn-primary"> <span id="opt1">Option4</span> </button> -->
-
-  
-                <!-- <label class="option"> <input type="raido" name="option" value="" ><span id ="opt1"></span></label>
-                <label class="option"> <input type="raido" name="option" value="" ><span id ="opt1"></span></label>
-                <label class="option"> <input type="raido" name="option" value="" ><span id ="opt1"></span></label>
-                <label class="option"> <input type="raido" name="option" value="" ><span id ="opt1"></span></label> -->
-                <!-- </div>
-
-                </div>
-
-            </div>
-            <div class="col-2"></div>
-
-        </div>
-
-
-    </div>
-    <script src="question.js"></script>
-    <script>
-
-        function startGame () {           
-        document.getElementById("startQuiz").addEventListener("click", function() {
-            document.getElementById("landingPage").style.display = "none";
-            document.getElementById("questionPage").style.display = "initial";
-        } -->
-
-
-        <!-- function loadGame() {
-
-            // Load question from question js file
-
-            var questionLoaded = document.getElementById("question");
-            questionLoaded.textContent = questions[2].title ;
-
-            // Load options from question js file
-
-        }
-
-
-            
-
-             
-            
-
-
-   
-</body>
-</html>
