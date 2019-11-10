@@ -21,6 +21,8 @@ setInterval(function() {
 function resetQuiz () {
     seconds = 60;
     currentQuestionIndex = 0;
+    correct = 0;
+    incorrect = 0;
 }
 
 function renderQuestion(question) {
@@ -50,6 +52,11 @@ function renderQuestion(question) {
 // const myQuestion = questions[0];
 renderQuestion();
 
+function renderScore() {
+    document.querySelector(".score").textContent = correct;
+    
+}
+
 document.querySelector("#start-quiz-button").addEventListener("click", function(event) {
     resetQuiz();
     renderQuestion();
@@ -65,20 +72,19 @@ document.querySelector("#choices-container").addEventListener("click" , function
         const correctAnswer = questions[currentQuestionIndex].answer;
 
         if (answer.localeCompare(correctAnswer) === 0 ){
-            console.log('you are correct');
+            correct++;
         }
         else {
-            console.log('you are wrong');
+            incorrect++;
         }
 
         currentQuestionIndex++;
         if (currentQuestionIndex > totalQuestionNumber) {
             renderQuestion();
 
-        } else
-        {
-
+        } else{
+            renderScore();
         }
-        renderQuestion();
+        
     }
 });
