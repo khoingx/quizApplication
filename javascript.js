@@ -1,6 +1,6 @@
 const seconds = 60;
 let currentQuestionIndex = 0;
-const remainingSecondSpan = document.querySelector("#remaining-seconds")
+const remainingSecondSpan = document.querySelector("#remaining-seconds");
 
 setInterval(function() {
     remainingSecondSpan.textContent = seconds;
@@ -8,6 +8,7 @@ setInterval(function() {
 }, 1000 );
 
 
+const myQuestion = questions[0];
 
 function getChoiceElement(choice) {
     const element = document.createElement("div");
@@ -31,8 +32,6 @@ function renderQuestion(questions) {
 
     }
 }
-
-const myQuestion = questions[0];
 
 renderQuestion(myQuestion);
 

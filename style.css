@@ -1,4 +1,4 @@
-body {
+/* body {
     margin: 0 auto;
 }
 
@@ -16,4 +16,20 @@ body {
 .btn {
     display: block;
     margin: 10px auto;
+} */
+
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#start-page #start-quiz-button {
+    margin-bottom: auto;
+    display: block;
+}
+
+#start-page h1 {
+    text-align: center;
 }
