@@ -1,5 +1,5 @@
 let seconds;
-let currentQuestionIndex;
+var currentQuestionIndex = 0 ;
 const remainingSecondSpan = document.querySelector("#remaining-seconds");
 const totalQuestionNumber = questions.length;
 let correct;
@@ -23,17 +23,17 @@ setInterval(function() {
 
 
 
-function showPage (page) {
+// function showPage (page) {
 
-    for (let index= 0; index < allPages.length; index++){
-        const page = allPages[index];
-        document.querySelector(`#${page}`).classList.add("hidden");
+//     for (let index= 0; index < allPages.length; index++){
+//         const page = allPages[index];
+//         document.querySelector(`#${page}`).classList.add("hidden");
 
-    }
+//     }
 
-    document.querySelector(`#${page}`).classList.remove("hidden");
+//     document.querySelector(`#${page}`).classList.remove("hidden");
 
-}
+// }
 
 
 
@@ -43,18 +43,18 @@ function getUserScore() {
 }
 
 function renderScore() {
-    showPage(RESULT_PAGE);
+    // showPage(RESULT_PAGE);
     document.querySelector(".score").textContent = correct +seconds;
 
 }
 
-showPage(START_PAGE);
+// showPage(START_PAGE);
 
 
 document.querySelector("#start-quiz-button").addEventListener("click", function(event) {
     resetQuiz();
     renderQuestion();
-    showPage(QUIZ_PAGE);
+    // showPage(QUIZ_PAGE);
 });
 
 function resetQuiz () {
@@ -64,9 +64,9 @@ function resetQuiz () {
     incorrect = 0;
 }
 
-function renderQuestion(question) {
+function renderQuestion() {
 
-    const question = questions[currentQuestionIndex];
+    const question = questions[0];
 
     document.querySelector("#question").textContent = question.title;
 
@@ -87,15 +87,19 @@ function renderQuestion(question) {
 
     }
 }
+
 document.querySelector("#choices-container").addEventListener("click" , function(event) {
 
     const target = event.target;
+    const question = questions[0];
 
     if (target.classList.contains("choice")) {
-        const answer = target.textContent;
-        const correctAnswer = questions[currentQuestionIndex].answer;
+        const answerSelect = target.textContent;
+        const correctAnswer = question[currentQuestionIndex].answer;
 
-        if (answer.localeCompare(correctAnswer) === 0 ){
+        console.log(correctAnswer);
+
+        if (answerSelect.localeCompare(correctAnswer) === 0 ){
             correct++;
         }
         else {
